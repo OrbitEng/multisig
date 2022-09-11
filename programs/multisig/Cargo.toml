@@ -7,7 +7,7 @@ license = "Apache-2.0"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "serum_multisig"
+name = "orbit_multisig"
 
 [features]
 no-entrypoint = []
