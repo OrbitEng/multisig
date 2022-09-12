@@ -5,13 +5,13 @@ cluster = "localnet"
 wallet = "../config/id.json"
 
 [programs.mainnet]
-serum_multisig = "DFXztZTbZzd5NQjRGzvQUL5ZJCoAo7ZdGJcpM4ipG7bA"
+orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
 
 [programs.devnet]
-serum_multisig = "DFXztZTbZzd5NQjRGzvQUL5ZJCoAo7ZdGJcpM4ipG7bA"
+orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
 
 [programs.localnet]
-serum_multisig = "DFXztZTbZzd5NQjRGzvQUL5ZJCoAo7ZdGJcpM4ipG7bA"
+orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
 
 [scripts]
 test = "npx mocha -t 1000000 tests/"
