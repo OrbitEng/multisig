@@ -10,47 +10,62 @@ describe("multisig", () => {
   const provider = new anchor.Provider(connection, providerWallet, "processed");
   anchor.setProvider(provider);
 
-  const program = anchor.workspace.SerumMultisig;
+  const program = anchor.workspace.OrbitMultisig;
 
   it("Tests the multisig program", async () => {
-    const multisig = anchor.web3.Keypair.generate();
-    const [multisigSigner, nonce] =
-      await anchor.web3.PublicKey.findProgramAddress(
-        [multisig.publicKey.toBuffer()],
-        program.programId
-      );
-    const multisigSize = 200; // Big enough.
+    // const multisig = anchor.web3.Keypair.generate();
+    // const [multisigSigner, nonce] =
+    //   await anchor.web3.PublicKey.findProgramAddress(
+    //     [multisig.publicKey.toBuffer()],
+    //     program.programId
+    //   );
+    // const multisigSize = 200; // Big enough.
 
-    console.log(multisig.toString());
-    console.log(multisig.secretKey);
-    console.log(nonce.toString())
+    // accounts
+    console.log(new Uint8Array(new PublicKey("7AwGcaYA8SC32T5kcv5q4u9HhY49a7cNAAp8CpcbibFq").toBytes()))
+    // // digital
+    // console.log(new Uint8Array(new PublicKey("DpKqMhUHc6YDjzGmxEKGZK8MxpdtW9X6jmYZrJ9UZj4g").toBytes()))
+    // // commission
+    // console.log(new Uint8Array(new PublicKey("9kTSzk3yQZBn2esehyucammd1WJ65GKcVAVCBGMdbcL5").toBytes()))
+    // // physical
+    // console.log(new Uint8Array(new PublicKey("HgZsfGTHEygTLSRDoKZkQMkJPm8jesNtUgjSQgFwVh7S").toBytes()))
 
-    const ownerA = new PublicKey("BRurf331BxKY9HqdepyCSmPKHSmsJYRNGP8oM61eFbwQ");
-    const ownerB = new PublicKey("494PxdBr4ATRERvA1vcxfYkrgyUYHshDCiSTD9V6TSLu");
-    const ownerC = new PublicKey("E5EP2qkdXmPwXA9ANzoG69Gmj86Jdqepjw2XrQDGj9sM");
-    const owners = [ownerA, ownerB, ownerC];
+    // console.log("MULTISIG STRUCT ADDR");
+    // console.log(new Uint8Array(multisig.publicKey.toBuffer()));
+    // console.log(multisig.secretKey);
+    // console.log(nonce.toString());
 
-    const threshold = new anchor.BN(2);
-    await program.rpc.createMultisig(owners, threshold, nonce, {
-      accounts: {
-        multisig: multisig.publicKey,
-      },
-      instructions: [
-        await program.account.multisig.createInstruction(
-          multisig,
-          multisigSize
-        ),
-      ],
-      signers: [multisig],
-    });
+    // console.log("SIGNER");
+    // console.log(multisigSigner.toString());
 
-    let multisigAccount = await program.account.multisig.fetch(
-      multisig.publicKey
-    );
-    assert.strictEqual(multisigAccount.nonce, nonce);
-    assert.ok(multisigAccount.threshold.eq(new anchor.BN(2)));
-    assert.deepStrictEqual(multisigAccount.owners, owners);
-    assert.ok(multisigAccount.ownerSetSeqno === 0);
+    // const ownerA = new PublicKey("BRurf331BxKY9HqdepyCSmPKHSmsJYRNGP8oM61eFbwQ");
+    // const ownerB = new PublicKey("494PxdBr4ATRERvA1vcxfYkrgyUYHshDCiSTD9V6TSLu");
+    // const ownerC = new PublicKey("E5EP2qkdXmPwXA9ANzoG69Gmj86Jdqepjw2XrQDGj9sM");
+    // const owners = [ownerA, ownerB, ownerC];
+
+    // const threshold = new anchor.BN(2);
+    // await program.rpc.createMultisig(owners, threshold, nonce, {
+    //   accounts: {
+    //     multisig: multisig.publicKey,
+    //   },
+    //   instructions: [
+    //     await program.account.multisig.createInstruction(
+    //       multisig,
+    //       multisigSize
+    //     ),
+    //   ],
+    //   signers: [multisig],
+    // });
+
+    // let multisigAccount = await program.account.multisig.fetch(
+    //   multisig.publicKey
+    // );
+    // assert.strictEqual(multisigAccount.nonce, nonce);
+    // assert.ok(multisigAccount.threshold.eq(new anchor.BN(2)));
+    // assert.deepStrictEqual(multisigAccount.owners, owners);
+    // assert.ok(multisigAccount.ownerSetSeqno === 0);
+
+    /////////////////////////// TO HERE
 
   //   const pid = program.programId;
   //   const accounts = [

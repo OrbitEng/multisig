@@ -147,6 +147,15 @@ pub mod orbit_multisig {
         Ok(())
     }
 
+    pub fn transfer_sol(ctx: Context<Auth>, amount: u64) -> Result<()>{
+        let wallet_info = ctx.accounts.multisig.to_account_info();
+        let recipient_info = ctx.remaining_accounts[0].to_account_info();
+
+        **recipient_info.try_borrow_mut_lamports()? = recipient_info.lamports().checked_add(amount).unwrap();
+        **wallet_info.try_borrow_mut_lamports()? = wallet_info.lamports().checked_sub(amount).unwrap();
+        Ok(())
+    }
+
     // Executes the given transaction if threshold owners have signed it.
     pub fn execute_transaction(ctx: Context<ExecuteTransaction>) -> Result<()> {
         // Has this been executed already?
