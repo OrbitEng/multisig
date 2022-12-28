@@ -22,7 +22,7 @@ describe("multisig", () => {
     // const multisigSize = 200; // Big enough.
 
     // accounts
-    console.log(new Uint8Array(new PublicKey("7AwGcaYA8SC32T5kcv5q4u9HhY49a7cNAAp8CpcbibFq").toBytes()))
+    console.log(new Uint8Array(new PublicKey("EacoywQUDpySVU1uQe7noLunwo7oiDNfhyoWrvkqvbeA").toBytes()))
     // // digital
     // console.log(new Uint8Array(new PublicKey("DpKqMhUHc6YDjzGmxEKGZK8MxpdtW9X6jmYZrJ9UZj4g").toBytes()))
     // // commission
