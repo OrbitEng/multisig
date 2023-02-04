@@ -1,3 +1,5 @@
 .anchor
 node_modules
-target
+/target/debug
+/target/bpfel-unknown-unknown
+/target/release
