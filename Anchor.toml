@@ -1,17 +1,17 @@
-anchor_version = "0.26.0"
+anchor_version = "0.27.0"
 
 [provider]
 cluster = "localnet"
 wallet = "../config/id.json"
 
 [programs.mainnet]
-orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
+orbit_multisig = "GsrNEsB6xuFqgs2Y6jeZJc91rVmSm74mHWWY4Qf5mTDN"
 
 [programs.devnet]
-orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
+orbit_multisig = "GsrNEsB6xuFqgs2Y6jeZJc91rVmSm74mHWWY4Qf5mTDN"
 
 [programs.localnet]
-orbit_multisig = "CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn"
+orbit_multisig = "GsrNEsB6xuFqgs2Y6jeZJc91rVmSm74mHWWY4Qf5mTDN"
 
 [scripts]
 test = "npx mocha -t 1000000 tests/"

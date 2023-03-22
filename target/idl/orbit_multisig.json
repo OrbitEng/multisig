@@ -339,5 +339,8 @@
       "name": "UniqueOwners",
       "msg": "Owners must be unique"
     }
-  ]
+  ],
+  "metadata": {
+    "address": "GsrNEsB6xuFqgs2Y6jeZJc91rVmSm74mHWWY4Qf5mTDN"
+  }
 }

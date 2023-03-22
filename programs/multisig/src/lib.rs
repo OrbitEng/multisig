@@ -23,7 +23,7 @@ use anchor_lang::solana_program::instruction::Instruction;
 use std::convert::Into;
 use std::ops::Deref;
 
-declare_id!("CzfjryDjbvAcWfnFcFq2B8n4iqAueDZzo2dhHj5AUuJn");
+declare_id!("GsrNEsB6xuFqgs2Y6jeZJc91rVmSm74mHWWY4Qf5mTDN");
 
 #[program]
 pub mod orbit_multisig {
