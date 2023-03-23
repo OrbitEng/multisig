@@ -1,16 +1,18 @@
-const anchor = require("@project-serum/anchor");
+const anchor = require("@coral-xyz/anchor");
 const { PublicKey } = require("@solana/web3.js");
 const assert = require("assert");
+const idl = require("../target/idl/orbit_multisig.json");
 
 describe("multisig", () => {
   // Configure the client to use the local cluster.
   const providerKP = anchor.web3.Keypair.fromSecretKey(Uint8Array.from([129,120,182,228,196,158,63,17,41,199,69,153,125,205,238,247,124,231,160,96,137,101,247,246,66,241,145,144,180,195,125,19,90,87,80,176,36,52,249,53,169,199,213,208,207,182,87,248,108,210,169,1,214,195,71,34,118,172,224,198,217,60,2,68]));
   const providerWallet = new anchor.Wallet(providerKP);
   let connection = new anchor.web3.Connection("https://api.devnet.solana.com");
-  const provider = new anchor.Provider(connection, providerWallet, "processed");
+  const provider = new anchor.AnchorProvider(connection, providerWallet, {preflightCommitment: "processed"});
   anchor.setProvider(provider);
 
   const program = anchor.workspace.OrbitMultisig;
+  
 
   it("Tests the multisig program", async () => {
     const multisig = anchor.web3.Keypair.generate();
